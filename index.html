@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Saif Ul Islam | Cybersecurity Analyst</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div id="canvas-container"></div>
+
+  <div id="ui-layer">
+    <nav class="glass-nav">
+      <div class="logo">&lt;Saif/&gt;</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="hero">
+      <div class="hero-content">
+        <p class="overline">System Status: Online</p>
+        <h1 class="glitch-text" data-text="Mohammed Saif Ul Islam">Mohammed Saif Ul Islam</h1>
+        <h2 class="typing-container"><span id="typing-text"></span><span class="cursor">|</span></h2>
+        <div class="cta-group">
+          <a href="#projects" class="btn primary-btn">Initialize Projects</a>
+          <a href="#contact" class="btn secondary-btn">Establish Uplink</a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Target Acquired: Scroll Down</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2 class="section-title">Mission Briefing</h2>
+      <div class="glass-card">
+        <div class="terminal-header">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+          <span>user@saif-workstation:~</span>
+        </div>
+        <div class="terminal-body">
+          <p>> <span class="cmd">whoami</span></p>
+          <p>Cybersecurity student passionate about DFIR, log analysis, and security operations. Hands-on experience
+            simulating real-world attacks, analyzing Linux logs, and building incident timelines.</p>
+          <p>> <span class="cmd">cat location.txt</span></p>
+          <p>Hyderabad, India</p>
+          <p>> <span class="cmd">status</span></p>
+          <p class="status-ok">[OK] CompTIA Security+ (Preparing)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <h2 class="section-title">Arsenal & Capabilities</h2>
+      <div class="skills-grid">
+        <!-- Skills injected dynamically or static -->
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-shield-halved"></i> Domains</h3>
+          <div class="tags">
+            <span>DFIR</span><span>Blue Team Ops</span><span>Log Analysis</span><span>SIEM</span><span>Threat
+              Analysis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
+          <div class="tags">
+            <span>Linux (Ubuntu)</span><span>Wireshark</span><span>Hydra</span><span>Wazuh</span><span>Splunk</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fa-solid fa-code"></i> Scripting</h3>
+          <div class="tags">
+            <span>Bash</span><span>Python</span><span>Java</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2 class="section-title">Operation Logs</h2>
+      <div class="projects-grid">
+        <div class="project-card glass-card">
+          <div class="card-header">
+            <h3>Linux Attack Simulation & DFIR</h3>
+            <a href="https://github.com/saifdfir/Cybersecurity-DFIR-Projects" target="_blank" class="icon-link"><i
+                class="fa-brands fa-github"></i></a>
+          </div>
+          <p>Realistic attack simulation involving brute-force SSH login, privilege escalation, and data exfiltration.
+          </p>
+          <div class="tech-stack"><span>Ubuntu</span><span>Hydra</span><span>Auth.log</span></div>
+        </div>
+        <div class="project-card glass-card">
+          <div class="card-header">
+            <h3>Windows Forensics (Upcoming)</h3>
+          </div>
+          <p>Analysis of Windows Event Logs focusing on authentication events, privilege use, and Sysmon telemetry.</p>
+          <div class="tech-stack"><span>Win 11</span><span>Event Viewer</span><span>Sysmon</span></div>
+        </div>
+        <div class="project-card glass-card">
+          <div class="card-header">
+            <h3>Network Traffic Analysis (Planned)</h3>
+          </div>
+          <p>Investigation of suspicious network activity using PCAP files and Wireshark.</p>
+          <div class="tech-stack"><span>Wireshark</span><span>Zeek</span><span>PCAP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs" class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="glass-card">
+        <ul class="cert-list">
+          <li><i class="fa-solid fa-check-circle"></i> <strong>TryHackMe:</strong> Pre-Security Learning Path</li>
+          <li><i class="fa-solid fa-spinner fa-spin"></i> <strong>TryHackMe:</strong> Advent of Cyber (In Progress)</li>
+          <li><i class="fa-solid fa-hourglass-half"></i> <strong>CompTIA Security+</strong> (Preparing)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">Encrypted Channel</h2>
+      <div class="glass-card contact-form-wrapper">
+        <p style="text-align: center; margin-bottom: 2rem; color: #fff;">
+          Direct Uplink: <a href="mailto:saifcyb@gmail.com"
+            style="color: var(--primary); font-weight: bold;">saifcyb@gmail.com</a>
+        </p>
+        <form id="contact-form" action="mailto:saifcyb@gmail.com" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">Identity</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Comms Freq (Email)</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Transmission</label>
+            <textarea id="message" name="message" rows="5" placeholder="Message content..." required></textarea>
+          </div>
+          <button type="submit" class="btn primary-btn">Send Transmission</button>
+        </form>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/mohammed-saif-ul-islam-85a68639a/" target="_blank"><i
+              class="fa-brands fa-linkedin"></i></a>
+          <a href="https://github.com/saifdfir" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="mailto:saifcyb@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Copyright © 2024 Mohammed Saif Ul Islam. System Secure.</p>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
