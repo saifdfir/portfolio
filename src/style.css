@@ -411,6 +411,17 @@ textarea:focus {
   border-color: var(--primary);
 }
 
+/* Email Validation States */
+input.valid {
+  border-color: #27c93f;
+  box-shadow: 0 0 8px rgba(39, 201, 63, 0.3);
+}
+
+input.invalid {
+  border-color: #ff5f56;
+  box-shadow: 0 0 8px rgba(255, 95, 86, 0.3);
+}
+
 .social-links {
   display: flex;
   justify-content: center;

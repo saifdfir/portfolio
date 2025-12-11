@@ -179,11 +179,35 @@ function initTilt() {
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const btn = form.querySelector('button[type="submit"]');
+  const emailInput = document.getElementById('email');
   const originalBtnText = btn.innerText;
+
+  // Email validation regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Real-time email validation
+  emailInput.addEventListener('input', () => {
+    if (emailInput.value === '') {
+      emailInput.classList.remove('valid', 'invalid');
+    } else if (emailRegex.test(emailInput.value)) {
+      emailInput.classList.remove('invalid');
+      emailInput.classList.add('valid');
+    } else {
+      emailInput.classList.remove('valid');
+      emailInput.classList.add('invalid');
+    }
+  });
 
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Validate email before submission
+      if (!emailRegex.test(emailInput.value)) {
+        emailInput.classList.add('invalid');
+        emailInput.focus();
+        return; // Stop submission
+      }
 
       // UI Feedback: Loading
       btn.innerText = 'Initializing Uplink...';
