@@ -46,7 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
   initTilt();
   initContactForm();
   initScrollReveal();
+  initCursorDot();
 });
+
+// Trailing Cursor Dot Logic
+function initCursorDot() {
+  const cursorDot = document.createElement('div');
+  cursorDot.classList.add('cursor-dot');
+  document.body.appendChild(cursorDot);
+
+  document.addEventListener('mousemove', (e) => {
+    // Direct follow (CSS transition handles the 'trail' lag)
+    cursorDot.style.left = `${e.clientX}px`;
+    cursorDot.style.top = `${e.clientY}px`;
+  });
+
+  // Hover States
+  const clickables = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-category');
+  clickables.forEach(el => {
+    el.addEventListener('mouseenter', () => cursorDot.classList.add('hover-active'));
+    el.addEventListener('mouseleave', () => cursorDot.classList.remove('hover-active'));
+  });
+}
 
 // Scroll Reveal Animation (Intersection Observer)
 function initScrollReveal() {

@@ -57,7 +57,7 @@ export function initScene() {
     }
     particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     const particlesMat = new THREE.PointsMaterial({
-        size: 0.02,
+        size: 0.015,
         color: 0x00f3ff,
         transparent: true,
         opacity: 0.8

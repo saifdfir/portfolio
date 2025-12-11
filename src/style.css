@@ -447,6 +447,31 @@ footer {
 
 /* --- Premium Upgrades --- */
 
+/* Trailing Cursor Dot */
+.cursor-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--primary);
+  mix-blend-mode: screen;
+  transition: transform 0.05s ease-out;
+  /* Reduced lag */
+}
+
+/* Enlarge on hover */
+.cursor-dot.hover-active {
+  transform: translate(-50%, -50%) scale(2.5);
+  background-color: #fff;
+  mix-blend-mode: difference;
+}
+
 
 
 
