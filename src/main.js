@@ -1,5 +1,9 @@
 import './style.css';
 import { initScene } from './three/scene.js';
+import emailjs from '@emailjs/browser';
+
+// Initialize EmailJS (REPLACE these with your actual keys)
+emailjs.init("GuT4zY4jrackV4AHK");
 
 // Initialize 3D Scene
 initScene();
@@ -39,7 +43,99 @@ function typeEffect() {
 // Start typing effect on load
 document.addEventListener('DOMContentLoaded', () => {
   if (typingElement) typeEffect();
+  initTilt();
+  initContactForm();
 });
+
+// 3D Tilt Effect for Project Cards
+function initTilt() {
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Calculate rotation based on mouse position
+      // Multiplier determines sensitivity (higher = more tilt)
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      // Apply transform with perspective
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+      // Remove transition delay for immediate response during movement
+      card.style.transition = 'transform 0.1s ease-out';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      // Reset position
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+      // Add smooth transition for reset
+      card.style.transition = 'transform 0.5s ease-out';
+    });
+  });
+}
+
+// Secure Contact Form Handler
+// Secure Contact Form Handler (EmailJS)
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  const btn = form.querySelector('button[type="submit"]');
+  const originalBtnText = btn.innerText;
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // UI Feedback: Loading
+      btn.innerText = 'Initializing Uplink...';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      btn.style.cursor = 'not-allowed';
+
+      // Send Email
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with actual values
+      const serviceID = 'service_wu4swma';
+      const templateID = 'template_ygilfa1';
+
+      emailjs.sendForm(serviceID, templateID, form)
+        .then(() => {
+          // UI Feedback: Success
+          btn.innerText = 'Transmission Sent';
+          btn.style.background = '#27c93f'; // Green
+          btn.style.color = '#fff';
+          form.reset();
+
+          setTimeout(() => {
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            btn.style.background = ''; // Revert to default
+            btn.style.color = '';
+          }, 3000);
+        }, (err) => {
+          // UI Feedback: Error
+          btn.innerText = 'Transmission Failed';
+          btn.style.background = '#ff5f56'; // Red
+          console.error('EmailJS Error:', err);
+
+          setTimeout(() => {
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            btn.style.background = '';
+          }, 3000);
+        });
+    });
+  }
+}
 
 // Smooth Scroll for Anchors
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
