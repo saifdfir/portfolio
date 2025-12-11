@@ -102,8 +102,10 @@ nav {
   letter-spacing: 1px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
 }
 
 /* Hero Section */
@@ -227,7 +229,6 @@ nav {
 /* Glass Cards (About, Projects, Contact) */
 .glass-card {
   background: rgba(20, 20, 35, 0.6);
-  /* increased opacity */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 243, 255, 0.1);
@@ -235,6 +236,34 @@ nav {
   padding: 2rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(0, 243, 255, 0.08),
+      transparent 40%);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card>* {
+  position: relative;
+  z-index: 1;
 }
 
 .glass-card:hover {

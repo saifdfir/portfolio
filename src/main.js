@@ -47,7 +47,54 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initScrollReveal();
   initCursorDot();
+  initSpotlightCards();
+  initScrollSpy();
 });
+
+// Spotlight Card Effect (Mouse Tracking)
+function initSpotlightCards() {
+  const cards = document.querySelectorAll('.glass-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+// ScrollSpy (Active Navigation Highlight)
+function initScrollSpy() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Remove active from all
+        navLinks.forEach(link => link.classList.remove('active'));
+
+        // Add active to matching link
+        const id = entry.target.getAttribute('id');
+        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }, {
+    threshold: 0.3, // Trigger when 30% of section is visible
+    rootMargin: '-100px 0px -50% 0px' // Account for fixed nav
+  });
+
+  sections.forEach(section => observer.observe(section));
+}
+
+
 
 // Trailing Cursor Dot Logic
 function initCursorDot() {
