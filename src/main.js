@@ -45,7 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typingElement) typeEffect();
   initTilt();
   initContactForm();
+  initScrollReveal();
 });
+
+// Scroll Reveal Animation (Intersection Observer)
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  const windowHeight = window.innerHeight;
+  const elementVisible = 150; // trigger distance
+
+  // Use Intersection Observer for better performance
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Optional: Stop observing once revealed
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  reveals.forEach(element => {
+    observer.observe(element);
+  });
+}
 
 // 3D Tilt Effect for Project Cards
 function initTilt() {

@@ -444,3 +444,42 @@ footer {
   color: var(--primary);
   font-size: 1.2rem;
 }
+
+/* --- Premium Upgrades --- */
+
+
+
+
+
+/* 2. Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Interactive Skill Tags */
+.tags span {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--primary);
+  border: 1px solid rgba(0, 243, 255, 0.1);
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: default;
+}
+
+.tags span:hover {
+  background: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  color: #fff;
+}
